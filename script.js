@@ -12,20 +12,47 @@
       signin.classList.toggle('active', accountView === signin);
       signup.classList.toggle('active', accountView === signup);
     }
-    window.addEventListener('hashchange', showPage);
-    showPage();
+    if (signin && signup) {
+      window.addEventListener('hashchange', showPage);
+      showPage();
+    }
 
-    searchForm.addEventListener('submit', (event) => {
+    if (searchForm && searchInput && searchMessage) searchForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const query = searchInput.value.trim();
       searchMessage.textContent = query ? `Searching the collection for â€œ${query}â€...` : 'Type a title, author, or subject to begin your search.';
     });
-    document.querySelector('#signinForm').addEventListener('submit', (event) => {
+    const signinForm = document.querySelector('#signinForm');
+    if (signinForm) signinForm.addEventListener('submit', (event) => {
       event.preventDefault();
       if (event.currentTarget.checkValidity()) { document.querySelector('#signinMessage').textContent = 'You are signed in. Welcome back to the library!'; event.currentTarget.reset(); }
     });
-    document.querySelector('#signupForm').addEventListener('submit', (event) => {
+    const signupForm = document.querySelector('#signupForm');
+    if (signupForm) signupForm.addEventListener('submit', (event) => {
       event.preventDefault();
       if (event.currentTarget.checkValidity()) { const name = document.querySelector('#firstName').value.trim(); document.querySelector('#signupMessage').textContent = `Welcome, ${name}! Your library account is ready.`; event.currentTarget.reset(); }
     });
-    document.querySelector('#year').textContent = new Date().getFullYear();
+    const year = document.querySelector('#year');
+    if (year) year.textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-filter]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('active', item === button));
+        document.querySelectorAll('.book-card').forEach((book) => {
+          book.hidden = filter !== 'all' && book.dataset.genre !== filter;
+        });
+      });
+    });
+
+    const readingText = document.querySelector('.reading-text');
+    document.querySelectorAll('[data-font-size]').forEach((button) => {
+      button.addEventListener('click', () => {
+        readingText.style.fontSize = `${button.dataset.fontSize}px`;
+      });
+    });
+    const themeButton = document.querySelector('#themeButton');
+    if (themeButton && readingText) themeButton.addEventListener('click', () => {
+      readingText.classList.toggle('night-reading');
+      themeButton.textContent = readingText.classList.contains('night-reading') ? 'Light mode' : 'Night mode';
+    });
