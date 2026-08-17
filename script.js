@@ -56,3 +56,13 @@
       readingText.classList.toggle('night-reading');
       themeButton.textContent = readingText.classList.contains('night-reading') ? 'Light mode' : 'Night mode';
     });
+
+    const orderForm = document.querySelector('#orderForm');
+    const orderMessage = document.querySelector('#orderMessage');
+    if (orderForm && orderMessage) orderForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!orderForm.checkValidity()) return;
+      const title = document.querySelector('#bookTitle').value;
+      orderMessage.textContent = `Your request for “${title}” is confirmed. We will email you when it is ready.`;
+      orderForm.reset();
+    });

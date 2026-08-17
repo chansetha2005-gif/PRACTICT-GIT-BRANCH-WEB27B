@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserve a book from Leaf and Lantern Library"><title>Reserve a book | Leaf &amp; Lantern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+</head>
+<body class="order-page">
+  <header class="site-header"><a class="brand" href="index.html" aria-label="Leaf and Lantern Library home"><span class="brand-mark">L</span><span>Leaf <i>&amp;</i> Lantern</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html#discover">Discover</a><a href="read.html">Read now</a><a href="index.html#events">Events</a><a class="nav-login" href="index.html#signin">My account</a></nav></header>
+  <main class="order-main">
+    <section class="order-intro"><p class="eyebrow hero-badge"><span></span> FREE LIBRARY HOLDS</p><h1>Save your next<br><em>great read.</em></h1><p>Reserve a title in seconds. We will keep it ready for you at your preferred library branch.</p><div class="order-art" aria-hidden="true"><div class="order-book book-a">THE<br>LAST<br>LIGHT</div><div class="order-book book-b">WILD<br>ORBIT</div><div class="order-book book-c">THE<br>LONG WAY<br>HOME</div><i></i></div><div class="order-benefits"><span>01 <b>Always free</b></span><span>02 <b>7-day pickup</b></span><span>03 <b>Email updates</b></span></div></section>
+    <section class="order-card-wrap"><form class="order-card" id="orderForm"><a class="back-link" href="index.html">&larr; Back to library home</a><p class="eyebrow">PLACE A HOLD</p><h2>Reserve a book</h2><p class="order-copy">Tell us what you would like to borrow.</p><div class="field"><label for="bookTitle">Book title</label><input id="bookTitle" type="text" placeholder="e.g. The Last Light" required></div><div class="field"><label for="orderEmail">Email address</label><input id="orderEmail" type="email" placeholder="you@example.com" autocomplete="email" required></div><div class="field"><label for="branch">Pickup branch</label><select id="branch" required><option value="">Choose a branch</option><option>Downtown Library</option><option>Riverbend Library</option><option>Northside Library</option></select></div><label class="terms"><input type="checkbox" required> Send me an email when my book is ready for pickup.</label><button class="button order-submit" type="submit">Reserve my book &rarr;</button><p class="form-message" id="orderMessage" aria-live="polite"></p></form></section>
+  </main>
+  <footer><p>Leaf &amp; Lantern Library <span>&bull;</span> A place for every reader.</p><p>&copy; <span id="year"></span> Leaf &amp; Lantern</p></footer><script src="script.js"></script>
+</body>
+</html>
