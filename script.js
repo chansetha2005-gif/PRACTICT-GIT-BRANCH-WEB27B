@@ -45,3 +45,14 @@ if (signupForm && formMessage) {
     signupForm.reset();
   });
 }
+
+const signinForm = document.querySelector('#signinForm');
+const signinMessage = document.querySelector('#signinMessage');
+if (signinForm && signinMessage) {
+  signinForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!signinForm.checkValidity()) return;
+    signinMessage.textContent = 'You are signed in. Welcome back to the library!';
+    signinForm.reset();
+  });
+}
