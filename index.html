@@ -16,9 +16,10 @@
       <span class="brand-mark">L</span>
       <span>Leaf <i>&amp;</i> Lantern</span>
     </a>
-    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">â˜°</button>
+    <button class="menu-button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#discover">Discover</a>
+      <a href="read.html">Read now</a>
       <a href="#events">Events</a>
       <a href="#visit">Visit us</a>
       <a class="nav-login" href="#signin">My account</a>
@@ -28,13 +29,14 @@
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">YOUR NEIGHBORHOOD LIBRARY</p>
+        <p class="eyebrow hero-badge"><span></span> YOUR NEIGHBORHOOD LIBRARY</p>
         <h1>Every story<br>starts <em>here.</em></h1>
         <p class="hero-text">Find your next favorite read, a peaceful place to learn, and a community that shares your curiosity.</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="#discover">Explore the collection <span>â†’</span></a>
+          <a class="button button-dark" href="#discover">Explore the collection <span>&rarr;</span></a>
           <a class="text-link" href="#visit">Plan your visit</a>
         </div>
+        <div class="hero-stats"><div><strong>48k+</strong><span>books &amp; e-books</span></div><div><strong>120+</strong><span>community events</span></div></div>
       </div>
       <div class="hero-art" aria-label="Illustration of stacked books and plants">
         <div class="sun"></div>
@@ -43,6 +45,7 @@
         <div class="plant plant-left"><span></span><span></span><span></span></div>
         <div class="books"><b></b><b></b><b></b><b></b><b></b></div>
         <div class="plant plant-right"><span></span><span></span><span></span><span></span></div>
+        <div class="art-card"><span>Featured shelf</span><strong>Stories that move you</strong><small>12 new arrivals</small></div>
       </div>
     </section>
 
@@ -57,29 +60,30 @@
         <button type="submit" aria-label="Search">âŒ•</button>
       </form>
       <p class="search-message" id="searchMessage" aria-live="polite"></p>
+      <div class="quick-topics"><span>Try a topic:</span><button type="button">Mystery</button><button type="button">Fantasy</button><button type="button">History</button></div>
     </section>
 
     <section class="features" id="events">
       <article>
-        <span class="feature-icon">â—«</span>
+        <span class="feature-icon">01</span>
         <p class="eyebrow">NEW THIS MONTH</p>
         <h3>Fresh on the shelf</h3>
         <p>Browse staff picks, new arrivals, and stories everyone is talking about.</p>
-        <a href="#collection">See new arrivals â†’</a>
+        <a href="collection.html">See new arrivals &rarr;</a>
       </article>
       <article>
-        <span class="feature-icon">âœ¦</span>
+        <span class="feature-icon">02</span>
         <p class="eyebrow">COMING UP</p>
         <h3>Make something wonderful</h3>
         <p>From storytime to workshops, there is always a reason to gather here.</p>
-        <a href="#calendar">View events â†’</a>
+        <a href="#calendar">View events &rarr;</a>
       </article>
       <article id="visit">
-        <span class="feature-icon">âŒ‚</span>
+        <span class="feature-icon">03</span>
         <p class="eyebrow">VISIT THE LIBRARY</p>
         <h3>Your favorite corner</h3>
         <p>Open every day with helpful people, warm spaces, and endless possibilities.</p>
-        <a href="#hours">Find hours &amp; directions â†’</a>
+        <a href="#hours">Find hours &amp; directions &rarr;</a>
       </article>
     </section>
   </main>
@@ -118,8 +122,8 @@
   </section>
 
   <footer>
-    <p>Leaf &amp; Lantern Library <span>â€¢</span> A place for every reader.</p>
-    <p>Â© <span id="year"></span> Leaf &amp; Lantern</p>
+    <p>Leaf &amp; Lantern Library <span>&bull;</span> A place for every reader.</p>
+    <p>&copy; <span id="year"></span> Leaf &amp; Lantern</p>
   </footer>
   <script src="script.js"></script>
 </body>
