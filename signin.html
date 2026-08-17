@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Leaf and Lantern Library account">
+  <title>Sign in | Leaf &amp; Lantern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="account-page">
+    <section class="account-welcome" aria-label="Leaf and Lantern Library member sign in">
+      <a class="brand" href="home.html" aria-label="Leaf and Lantern Library home">
+        <span class="brand-mark">L</span><span>Leaf <i>&amp;</i> Lantern</span>
+      </a>
+      <div>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>So many stories are waiting for <em>you.</em></h1>
+        <p>Sign in to manage your loans, save your favorite books, and explore what is new at the library.</p>
+      </div>
+      <div class="welcome-circle" aria-hidden="true"></div>
+      <div class="welcome-books" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="account-content">
+      <div class="signup-card">
+        <a class="back-link" href="home.html">&larr; Back to library home</a>
+        <h2>Sign in</h2>
+        <p class="signup-intro">Enter your details to continue to your library account.</p>
+        <form class="signup-form" id="signinForm">
+          <div class="field"><label for="signinEmail">Email address</label><input id="signinEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="signinPassword">Password</label><input id="signinPassword" name="password" type="password" autocomplete="current-password" required></div>
+          <a class="forgot-password" href="#reset">Forgot your password?</a>
+          <button class="button button-dark signup-submit" type="submit">Sign in <span>&rarr;</span></button>
+          <p class="form-message" id="signinMessage" aria-live="polite"></p>
+        </form>
+        <p class="signin-line">New to the library? <a href="signup.html">Create an account</a></p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
