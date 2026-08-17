@@ -69,8 +69,24 @@ h1 em { color: var(--rust); font-weight: 600; }
 footer { display: flex; justify-content: space-between; gap: 20px; padding: 25px 7%; background: var(--ink); color: #dce5d8; font-size: .78rem; } footer p { margin: 0; } footer span { color: var(--gold); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
+.account-page { min-height: 100vh; display: grid; grid-template-columns: .92fr 1.08fr; background: var(--paper); }
+.account-welcome { position: relative; overflow: hidden; padding: 52px 11%; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; justify-content: space-between; }
+.account-welcome .brand { color: var(--paper); }.account-welcome .brand-mark { background: var(--gold); color: var(--ink); }
+.account-welcome h1 { max-width: 450px; font-size: clamp(3rem, 5vw, 5.2rem); }.account-welcome h1 em { color: var(--gold); }
+.account-welcome p:not(.eyebrow) { max-width: 390px; color: #cbd7cc; line-height: 1.7; }
+.welcome-circle { position: absolute; width: 370px; height: 370px; right: -105px; bottom: -125px; border: 48px solid #426359; border-radius: 50%; }
+.welcome-books { position: absolute; bottom: 60px; right: 9%; display: flex; align-items: end; height: 104px; transform: rotate(-5deg); }.welcome-books span { width: 28px; border-radius: 3px 3px 0 0; }.welcome-books span:nth-child(1) { height: 78px; background: var(--rust); }.welcome-books span:nth-child(2) { height: 104px; background: var(--gold); }.welcome-books span:nth-child(3) { height: 66px; background: #d5e0d0; }.welcome-books span:nth-child(4) { height: 91px; background: #668d77; }
+.account-content { display: grid; place-items: center; padding: 55px 10%; }
+.signup-card { width: min(100%, 470px); }.back-link { display: inline-block; margin-bottom: 44px; color: #5a6d63; font-size: .86rem; font-weight: 700; }.back-link:hover { color: var(--rust); }
+.signup-card h2 { font-size: clamp(2.25rem, 4vw, 3.2rem); }.signup-intro { color: #607068; line-height: 1.6; margin: 12px 0 28px; }
+.signup-form { display: grid; gap: 16px; }.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }.field { display: grid; gap: 7px; }.field label { font-size: .82rem; font-weight: 700; }.field input { min-width: 0; border: 1px solid #c8c6ba; border-radius: 2px; background: white; padding: 13px; color: var(--ink); font: inherit; }.field input:focus { outline: 2px solid var(--rust); outline-offset: 1px; border-color: var(--rust); }
+.password-note { margin: -7px 0 0; color: #6c776f; font-size: .72rem; }.terms { display: flex; align-items: flex-start; gap: 9px; color: #53655d; font-size: .78rem; line-height: 1.45; }.terms input { accent-color: var(--rust); margin-top: 2px; }.terms a { color: var(--rust); text-decoration: underline; }
+.signup-submit { justify-content: center; border: 0; cursor: pointer; margin-top: 4px; }.form-message { min-height: 22px; margin: 0; color: #42705a; font-size: .86rem; font-weight: 600; }.signin-line { color: #607068; font-size: .84rem; text-align: center; }.signin-line a { color: var(--rust); font-weight: 700; text-decoration: underline; }
+
 @media (max-width: 760px) {
   .site-header { padding: 0 6%; min-height: 68px; }.menu-button { display: block; }.nav-links { position: absolute; z-index: 10; display: none; top: 68px; right: 0; left: 0; padding: 22px 6%; background: var(--paper); flex-direction: column; align-items: flex-start; gap: 18px; border-bottom: 1px solid var(--ink); }.nav-links.open { display: flex; }
   .hero { grid-template-columns: 1fr; }.hero-copy { padding: 75px 9% 60px; }.hero-art { min-height: 390px; }.arch-back { left: 22%; }.arch-front { left: 34%; }.books { left: 28%; bottom: 11%; }.plant-left { left: 2%; }
   .search-panel { grid-template-columns: 1fr; padding: 42px 9%; }.search-message { grid-column: 1; margin: -18px 0 0; }.features { grid-template-columns: 1fr; padding: 64px 10%; gap: 45px; } footer { flex-direction: column; }
+  .account-page { grid-template-columns: 1fr; }.account-welcome { min-height: 315px; padding: 34px 9%; }.account-welcome h1 { font-size: 3.1rem; max-width: 330px; }.account-welcome p:not(.eyebrow) { display: none; }.welcome-books { bottom: 25px; }.account-content { padding: 45px 9%; }.back-link { margin-bottom: 30px; }
+  .form-row { grid-template-columns: 1fr; }
 }
