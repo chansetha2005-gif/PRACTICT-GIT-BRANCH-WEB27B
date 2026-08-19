@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="English Learning E-Book Library for learners in Cambodia">
   <title>Learn English | E-Book Library</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <meta name="theme-color" content="#0B0F17">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22English%20Library%22%2C%22short_name%22%3A%22English%20Library%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22theme_color%22%3A%22%230B0F17%22%2C%22background_color%22%3A%22%230B0F17%22%7D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -13,27 +17,48 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Library E-book home">
-      <span class="brand-mark">E</span>
+      <span class="brand-mark"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5v16M8 7h8M8 11h8"/></svg></span>
       <span class="logo-text">English <i>Library</i></span>
     </a>
     <button class="menu-button" aria-label="Open navigation" aria-expanded="false"><svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#discover">Discover</a>
-      <a href="read.html">Read now</a>
-      <a href="#discover">Learning paths</a>
-      <a href="#events">Speaking clubs</a>
+      <a href="#discover"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m14.5 9.5-5 2 2 5 3-7Z"/></svg>Discover</a>
+      <a href="read.html"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5v16"/></svg>Read now</a>
+      <div class="learning-paths-menu"><button class="learning-paths-trigger" type="button" aria-expanded="false" aria-haspopup="true">Learning Paths <span aria-hidden="true">▾</span></button><div class="learning-paths-dropdown" role="menu"><div><p>Grammar Hubs</p><a href="#gerunds" role="menuitem">Gerunds Masterclass</a><a href="#infinitives" role="menuitem">Infinitives Practice</a><a href="#cefr-search" role="menuitem">CEFR Level Quizzes</a></div><div><p>Vocabulary &amp; Life Skills</p><a href="#vocab-times" role="menuitem">Times of Life</a><a href="#vocab-activities" role="menuitem">Life Activities &amp; Goals</a><a href="#vocab-friendship" role="menuitem">Relationships &amp; Friendship</a><a href="#vocab-habits" role="menuitem">Health &amp; Daily Habits</a></div><div><p>Speaking &amp; Practice</p><a href="#speaking-clubs" role="menuitem">Live Speaking Clubs</a><a href="#practice-paragraphs" role="menuitem">Warm-Up Drills &amp; Audio</a><a href="#voice-warmup" role="menuitem">1-Minute Mic Warmup</a></div><div><p>Graded Readers</p><a href="read.html?level=a1" role="menuitem">Beginner (A1–A2)</a><a href="read.html?level=b1" role="menuitem">Intermediate (B1–B2)</a><a href="read.html?level=c1" role="menuitem">Advanced (C1–C2)</a></div></div></div>
+      <a href="#events"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20"/><circle cx="9" cy="7" r="3"/><path d="M16 4.5a3 3 0 0 1 0 5.8M22 20v-1.5a4 4 0 0 0-3-3.85"/></svg>Speaking clubs</a>
       <a href="#discover">Study tools</a>
       <a href="#discover">For teachers</a>
-      <a class="nav-login" href="#signin">My account</a>
+      <a class="nav-login" href="#signin"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>My account</a>
     </nav>
   </header>
 
   <main id="home">
+    <div class="learning-mode-bar" role="toolbar" aria-label="Learning mode controls">
+      <span class="learning-mode-label">LEARNING MODE</span>
+      <button class="mode-button" type="button" data-learning-mode="reading"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5v16"/></svg>Reading Mode</button>
+      <button class="mode-button active" type="button" data-learning-mode="practice"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg>Practice Mode</button>
+      <button class="mode-button" id="siteKhmerToggle" type="button" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Khmer Translations</button>
+    </div>
+    <aside class="floating-rail" aria-label="Quick navigation">
+      <a href="#daily-sprint" title="Sprint"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg><span>Sprint</span></a>
+      <a href="#grammar-hub" title="Grammar"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Grammar</span></a>
+      <a href="#flashcards" title="Flashcards"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="13" height="15" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/></svg><span>Flashcards</span></a>
+      <a href="#speaking-clubs" title="Speaking"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg><span>Speaking</span></a>
+      <a href="#places-vocab" title="Places vocabulary"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/></svg><span>Places Vocab</span></a>
+    </aside>
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow hero-badge"><span></span> LEARN ENGLISH WITH US</p>
         <h1>Master English,<br>one story <em>at a time.</em></h1>
         <p class="hero-text">Discover graded readers, audiobooks with real-time transcripts, and interactive grammar hubs for all proficiency levels.</p>
+        <section class="reader-wizard" id="readerWizard" aria-labelledby="wizardHeading">
+          <div class="wizard-heading"><div><p class="eyebrow">FIND YOUR IDEAL GRADED READER</p><h2 id="wizardHeading">Build your reading path</h2></div><span id="wizardStepLabel">Step 1 of 3</span></div>
+          <div class="wizard-step active" data-wizard-step="1"><p>1. Select your level</p><div class="wizard-options"><button type="button" data-wizard-value="beginner">A1-A2 Beginner</button><button type="button" data-wizard-value="intermediate">B1-B2 Intermediate</button><button type="button" data-wizard-value="advanced">C1 Advanced</button></div></div>
+          <div class="wizard-step" data-wizard-step="2"><p>2. Select a genre</p><div class="wizard-options"><button type="button" data-wizard-value="mystery">Mystery &amp; Thriller</button><button type="button" data-wizard-value="business">Business &amp; Tech</button><button type="button" data-wizard-value="culture">Daily Life &amp; Culture</button></div></div>
+          <div class="wizard-step" data-wizard-step="3"><p>3. Select your goal</p><div class="wizard-options"><button type="button" data-wizard-value="vocabulary">Improve Vocabulary</button><button type="button" data-wizard-value="listening">Practice Listening</button><button type="button" data-wizard-value="grammar">Grammar in Context</button></div></div>
+          <button class="wizard-next" id="wizardNext" type="button" disabled>Continue <span aria-hidden="true">→</span></button>
+          <div class="wizard-results" id="wizardResults" hidden><div class="wizard-results-heading"><p class="eyebrow">YOUR CURATED PICKS</p><button id="wizardReset" type="button">Start over</button></div><div class="wizard-book-grid"><article class="wizard-book-card"><div class="wizard-cover cover-light">THE<br>LAST<br>LIGHT</div><div><span class="wizard-book-level">B1-B2 · 18 min</span><h3>The Last Light</h3><p>A reflective mystery for building vocabulary in context.</p><a href="read.html">Start Reading Now <span aria-hidden="true">→</span></a></div></article><article class="wizard-book-card"><div class="wizard-cover cover-orbit">WILD<br>ORBIT</div><div><span class="wizard-book-level">A1-A2 · 12 min</span><h3>Wild Orbit</h3><p>A bright, easy reader for everyday listening practice.</p><a href="read.html">Start Reading Now <span aria-hidden="true">→</span></a></div></article></div></div>
+        </section>
         <div class="hero-actions">
           <a class="button button-dark" href="#discover">Find your level <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="text-link" href="#events">Join a speaking club</a>
@@ -55,7 +80,7 @@
         <h2>Find your next lesson</h2>
         <p class="search-subtitle">Search our English collection by topic, level, or the skill you want to build.</p>
       </div>
-      <div class="level-filters" role="group" aria-label="Filter by CEFR level">
+      <div class="level-filters" id="cefr-search" role="group" aria-label="Filter by CEFR level">
         <span class="filter-label">CEFR LEVELS</span>
         <button class="level-pill active" type="button" data-level="all">All Levels</button>
         <button class="level-pill" type="button" data-level="a1">A1 Beginner</button>
@@ -66,14 +91,37 @@
       </div>
       <form class="search-form" id="searchForm">
         <label class="sr-only" for="searchInput">Search by title, level, or topic</label>
-        <input id="searchInput" type="search" placeholder="Search by title, level, or topic (e.g., Grammar, Business English, IELTS)...">
-        <button type="submit" aria-label="Search"><svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span>Search</span></button>
+        <input id="searchInput" type="search" placeholder="Search by topic, grammar rule, or vocabulary (e.g., Conditionals, Business English)..." autocomplete="off">
+        <button type="submit" aria-label="Research topics"><svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span>Research Topics</span></button>
+        <button class="advanced-filter-trigger" id="advancedFilterTrigger" type="button" aria-expanded="false">⚙️ Advanced Filters</button>
       </form>
       <p class="search-message" id="searchMessage" aria-live="polite"></p>
       <div class="quick-topics"><span>EXPLORE TOPICS</span><button class="tag-chip" type="button">IELTS / TOEFL Prep</button><button class="tag-chip" type="button">Everyday Conversation</button><button class="tag-chip" type="button">Business English</button><button class="tag-chip" type="button">Graded Readers</button><button class="tag-chip" type="button">Grammar &amp; Vocab</button></div>
+      <div class="advanced-filters" id="advancedFilters" hidden><span>FILTER BY</span><button class="filter-chip active" type="button" data-research-filter="all">All Topics</button><button class="filter-chip" type="button" data-research-filter="grammar">Grammar</button><button class="filter-chip" type="button" data-research-filter="ielts">IELTS</button><button class="filter-chip" type="button" data-research-filter="vocabulary">Vocabulary</button></div>
+      <div class="research-results" id="researchResults" hidden></div>
     </section>
 
-    <section class="grammar-section" id="grammar" aria-labelledby="grammarHeading">
+    <section class="speed-challenge-section" id="daily-sprint" aria-labelledby="challengeHeading">
+      <div class="speed-challenge-header"><div><p class="eyebrow">DAILY CHALLENGE</p><h2 id="challengeHeading">1-Minute Grammar Sprint</h2><p>Answer 3 quick questions to earn points and rank up!</p></div><div class="challenge-score"><span>Current score</span><strong id="challengeScore">0 pts</strong></div></div>
+      <div class="challenge-layout">
+        <div class="challenge-box">
+          <div class="challenge-timer"><span><b id="challengeTime">60</b>s left</span><div><i id="challengeProgress"></i></div><span id="challengeQuestionCount">1 / 3</span></div>
+          <p class="eyebrow">QUICK GRAMMAR CHECK</p>
+          <h3 id="challengeQuestion">Choose the sentence with a gerund as the subject.</h3>
+          <div class="challenge-options" role="group" aria-label="Daily challenge answers">
+            <button class="challenge-option" type="button">A. I enjoy reading.</button>
+            <button class="challenge-option" type="button">B. Reading builds confidence.</button>
+            <button class="challenge-option" type="button">C. She is reading now.</button>
+          </div>
+          <button class="challenge-start" id="challengeStart" type="button">Start Sprint</button>
+          <p class="challenge-status" id="challengeStatus" aria-live="polite"></p>
+        </div>
+        <aside class="leaderboard-card" aria-labelledby="leaderboardHeading"><div class="leaderboard-title"><p class="eyebrow">THIS WEEK</p><h3 id="leaderboardHeading">Top Learners</h3></div><ol><li><span>🥇 Chann</span><b>1,250 pts</b></li><li><span>🥈 Sokha</span><b>1,120 pts</b></li><li><span>🥉 Bory</span><b>980 pts</b></li></ol><small>Keep your streak alive to climb the ranks.</small></aside>
+      </div>
+    </section>
+
+    <div class="module-tabs grammar-hub-tabs" id="grammar-hub" role="tablist" aria-label="Grammar Hub modules"><span>GRAMMAR HUB</span><button class="module-tab active" type="button" data-module-group="grammar" data-module-target="gerunds" aria-selected="true">Gerunds</button><button class="module-tab" type="button" data-module-group="grammar" data-module-target="infinitives" aria-selected="false">Infinitives</button><button class="module-tab" type="button" data-module-group="grammar" data-module-target="quantifiers" aria-selected="false">Quantifiers</button><button class="module-tab" type="button" data-module-group="grammar" data-module-target="firstConditional" aria-selected="false">First Conditional</button></div>
+    <section class="grammar-section module-panel grammar-panel" id="gerunds" data-module-panel="gerunds" aria-labelledby="grammarHeading">
       <div class="grammar-card">
         <div class="grammar-content">
           <div class="grammar-heading-row">
@@ -142,7 +190,7 @@
       </div>
     </section>
 
-    <section class="infinitive-section" id="infinitives" aria-labelledby="infinitiveHeading">
+    <section class="infinitive-section module-panel grammar-panel" id="infinitives" data-module-panel="infinitives" aria-labelledby="infinitiveHeading">
       <div class="infinitive-card">
         <div class="infinitive-overview">
           <p class="eyebrow">GRAMMAR ESSENTIALS</p>
@@ -188,7 +236,18 @@
       </div>
     </section>
 
-    <section class="vocabulary-section" id="vocabulary" aria-labelledby="vocabularyHeading">
+    <section class="grammar-extension-section module-panel grammar-panel" id="quantifiers" data-module-panel="quantifiers" aria-labelledby="quantifiersHeading">
+      <div class="grammar-extension-card">
+        <div class="grammar-extension-copy"><p class="eyebrow">GRAMMAR ESSENTIALS / A2–B1</p><h2 id="quantifiersHeading">Mastering Quantifiers</h2><p>Learn how to express amounts and quantities for countable and uncountable nouns.</p><div class="concept-card">Quantifiers tell us the amount or quantity of something. They change depending on whether nouns are <strong>countable</strong> (can count with numbers) or <strong>uncountable</strong> (cannot count individually).</div></div>
+        <div class="rule-grid"><div><b>Some</b><span>Positive countable and uncountable nouns.</span><code>some water · some apples</code></div><div><b>Any</b><span>Negative sentences or questions.</span><code>any milk? · any books</code></div><div><b>Many</b><span>Plural countable nouns.</span><code>many cars</code></div><div><b>Much</b><span>Uncountable nouns.</span><code>much time</code></div><div><b>A few</b><span>A small number of plural countable nouns.</span><code>a few friends</code></div><div><b>A little</b><span>A small amount of uncountable nouns.</span><code>a little money</code></div></div>
+      </div>
+    </section>
+    <section class="mini-quiz-section" id="quantifiersQuiz" aria-labelledby="quantifiersQuizHeading"><div class="mini-quiz-card"><div class="quiz-topline"><span class="quantifier-progress" id="quantifierProgress">Question <b>1</b> of 10</span><span class="quiz-level">Level: A2–B1</span></div><div class="mini-quiz-question"><p class="eyebrow">GRAMMAR PRACTICE</p><h2 id="quantifiersQuizHeading">Mastering Quantifiers Quiz</h2><p id="quantifierPrompt">Choose the correct quantifier: There is _____ water in the glass.</p></div><div class="mini-quiz-options" id="quantifierOptions"></div><p class="mini-quiz-feedback" id="quantifierFeedback" aria-live="polite"></p></div></section>
+    <section class="grammar-extension-section conditional-section" id="firstConditional" aria-labelledby="conditionalHeading"><div class="grammar-extension-card"><div class="grammar-extension-copy"><p class="eyebrow">GRAMMAR ESSENTIALS / B1</p><h2 id="conditionalHeading">The First Conditional</h2><p>Express real or probable future possibilities and their expected results.</p></div><div class="structure-banner"><span>STRUCTURE</span><strong>If + Simple Present, will + base verb</strong><p><em>If it rains, we will stay at home.</em></p><p><em>If you study hard, you will pass the exam.</em></p></div></div></section>
+    <section class="mini-quiz-section" id="conditionalQuiz" aria-labelledby="conditionalQuizHeading"><div class="mini-quiz-card"><div class="quiz-topline"><span class="conditional-progress" id="conditionalProgress">Question <b>1</b> of 10</span><span class="quiz-level">Level: B1</span></div><div class="mini-quiz-question"><p class="eyebrow">GRAMMAR PRACTICE</p><h2 id="conditionalQuizHeading">First Conditional Practice Quiz</h2><p id="conditionalPrompt">If it rains tomorrow, we _____ at home.</p></div><div class="mini-quiz-options" id="conditionalOptions"></div><p class="mini-quiz-feedback" id="conditionalFeedback" aria-live="polite"></p></div></section>
+
+    <div class="module-tabs vocabulary-hub-tabs" role="tablist" aria-label="Vocabulary Builder modules"><span>VOCABULARY BUILDER</span><button class="module-tab active" type="button" data-module-group="vocabulary" data-module-target="vocabulary" aria-selected="true">Life &amp; Social</button><button class="module-tab" type="button" data-module-group="vocabulary" data-module-target="geography" aria-selected="false">Geography &amp; Places</button><button class="module-tab" type="button" data-module-group="vocabulary" data-module-target="urban" aria-selected="false">Urban Environment</button></div>
+    <section class="vocabulary-section module-panel vocabulary-panel" id="vocabulary" data-module-panel="vocabulary" aria-labelledby="vocabularyHeading">
       <header class="vocabulary-header">
         <div>
           <p class="eyebrow">VOCABULARY BUILDER</p>
@@ -198,12 +257,46 @@
         <button class="definition-toggle" id="definitionToggle" type="button" aria-pressed="true">Definitions: On</button>
       </header>
       <div class="vocabulary-tabs" role="tablist" aria-label="Vocabulary categories">
-        <button class="vocabulary-tab active" type="button" role="tab" aria-selected="true" data-vocabulary-category="life">Times of Life</button>
-        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="activities">Life Activities</button>
-        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="friendship">Friendship</button>
-        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="habits">Good &amp; Bad Habits</button>
+        <button class="vocabulary-tab active" id="vocab-times" type="button" role="tab" aria-selected="true" data-vocabulary-category="life">Times of Life</button>
+        <button class="vocabulary-tab" id="vocab-activities" type="button" role="tab" aria-selected="false" data-vocabulary-category="activities">Life Activities</button>
+        <button class="vocabulary-tab" id="vocab-friendship" type="button" role="tab" aria-selected="false" data-vocabulary-category="friendship">Friendship</button>
+        <button class="vocabulary-tab" id="vocab-habits" type="button" role="tab" aria-selected="false" data-vocabulary-category="habits">Good &amp; Bad Habits</button>
       </div>
       <div class="vocabulary-grid" id="vocabularyGrid" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <section class="geography-section module-panel vocabulary-panel" id="geography" data-module-panel="geography" aria-labelledby="geographyHeading">
+      <header class="geography-header">
+        <div><p class="eyebrow">GEOGRAPHY &amp; PLACES</p><h2 id="geographyHeading">Describing Places &amp; Environments</h2><p>Master essential terms for natural landscapes, urban cityscapes, and descriptive adjectives.</p></div>
+        <button class="geography-translation-toggle" id="geographyTranslationToggle" type="button" aria-pressed="false">Khmer: Off</button>
+      </header>
+      <div class="geography-tabs" role="tablist" aria-label="Geography vocabulary categories">
+        <button class="geography-tab active" type="button" role="tab" aria-selected="true" data-geography-category="features">Geographical Features</button>
+        <button class="geography-tab" type="button" role="tab" aria-selected="false" data-geography-category="descriptions">Describing Places</button>
+        <button class="geography-tab" type="button" role="tab" aria-selected="false" data-geography-category="urban">Urban Environment</button>
+      </div>
+      <div class="geography-grid" id="geographyGrid" role="tabpanel" aria-live="polite"></div>
+      <div class="geography-quiz-panel" id="geographyQuizPanel"><div class="geography-quiz-topline"><span>Geography &amp; Places Quiz</span><b id="geographyQuizProgress">Question 1 of 10</b></div><h3 id="geographyQuizPrompt">What is a piece of land surrounded entirely by water?</h3><div class="geography-quiz-options" id="geographyQuizOptions"></div><p id="geographyQuizFeedback" class="geography-quiz-feedback" aria-live="polite"></p><div class="geography-quiz-summary" id="geographyQuizSummary" hidden></div></div>
+      <div class="geography-quiz-panel urban-quiz-panel" id="urbanQuizPanel"><div class="geography-quiz-topline"><span>Urban Environment Quiz</span><b id="urbanQuizProgress">Question 1 of 10</b></div><h3 id="urbanQuizPrompt">Where do you go to board an underground city train?</h3><div class="geography-quiz-options" id="urbanQuizOptions"></div><p id="urbanQuizFeedback" class="geography-quiz-feedback" aria-live="polite"></p><div class="geography-quiz-summary" id="urbanQuizSummary" hidden></div></div>
+    </section>
+
+    <section class="flashcard-section" id="flashcards" aria-labelledby="flashcardHeading">
+      <div class="flashcard-header">
+        <div><p class="eyebrow">SPACED REPETITION</p><h2 id="flashcardHeading">Flashcard Deck</h2><p>Review words at the right moment and build lasting vocabulary memory.</p></div>
+        <div class="flashcard-stats"><span>Cards Reviewed: <b id="cardsReviewed">12/30</b></span><span>🔥 5-Day Study Streak</span></div>
+      </div>
+      <div class="flashcard-scene" id="flashcardScene" tabindex="0" role="button" aria-label="Flip flashcard to see the definition" aria-pressed="false">
+        <div class="flashcard-inner">
+          <article class="flashcard-face flashcard-front"><span class="flashcard-label">TARGET WORD</span><h3 id="flashcardWord">Adolescent</h3><button class="flashcard-audio" id="flashcardAudio" type="button" aria-label="Listen to Adolescent"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span>Audio</span></button><small>Click to reveal</small></article>
+          <article class="flashcard-face flashcard-back"><span class="flashcard-label">MEANING + EXAMPLE</span><h3 id="flashcardBackWord">Adolescent</h3><p id="flashcardDefinition">A young person developing into an adult, usually during puberty.</p><p class="flashcard-example" id="flashcardExample">“The adolescent years are a time of rapid change.”</p><p class="flashcard-khmer" id="flashcardKhmer">Khmer: វ័យជំទង់</p></article>
+        </div>
+      </div>
+      <div class="confidence-buttons" role="group" aria-label="How difficult was this card?">
+        <button class="confidence-button hard" type="button" data-confidence="Hard">🔴 Hard <small>Review in 1m</small></button>
+        <button class="confidence-button good" type="button" data-confidence="Good">🟡 Good <small>Review in 10m</small></button>
+        <button class="confidence-button easy" type="button" data-confidence="Easy">🟢 Easy <small>Review in 1d</small></button>
+      </div>
+      <p class="flashcard-status" id="flashcardStatus" aria-live="polite"></p>
     </section>
 
     <section class="features" id="events">
@@ -228,6 +321,90 @@
         <p>Download flashcards, grammar guides, and vocabulary exercises curated by expert teachers.</p>
         <a href="#discover">Explore Resources <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
+    </section>
+
+    <section class="clubs-section" id="speaking-clubs" aria-labelledby="clubsHeading">
+      <header class="clubs-header">
+        <div>
+          <p class="eyebrow">LIVE PRACTICE</p>
+          <h2 id="clubsHeading">Join an English Speaking Club</h2>
+          <p>Practice speaking in small, supportive groups with native facilitators and curated weekly topics.</p>
+        </div>
+      </header>
+      <div class="club-tabs" role="tablist" aria-label="Speaking club levels">
+        <button class="club-tab active" type="button" role="tab" aria-selected="true" data-club-filter="all">All Clubs</button>
+        <button class="club-tab" type="button" role="tab" aria-selected="false" data-club-filter="beginner">A1-A2 Beginner</button>
+        <button class="club-tab" type="button" role="tab" aria-selected="false" data-club-filter="intermediate">B1-B2 Intermediate</button>
+        <button class="club-tab" type="button" role="tab" aria-selected="false" data-club-filter="advanced">C1-C2 Advanced</button>
+        <button class="club-tab" type="button" role="tab" aria-selected="false" data-club-filter="ielts">IELTS Speaking</button>
+      </div>
+      <div class="club-grid">
+        <article class="club-card" data-club-level="intermediate">
+          <div class="club-card-meta"><span class="club-level">B1 Intermediate</span><span class="club-status live">● Live in 45m</span></div>
+          <h3>Everyday Conversations</h3>
+          <p class="club-topic">“Travel Dreams &amp; Culture Shock”</p>
+          <p class="club-host">Hosted by Sarah Jenkins (UK)</p>
+          <div class="club-details"><span>Seats: 6 / 8 filled</span><span>Today, 7:00 PM</span></div>
+          <div class="club-vocab"><span>PRE-CLUB VOCAB</span><b>culture shock</b><b>itinerary</b><b>hospitality</b></div>
+          <button class="reserve-seat" type="button" data-club-name="Everyday Conversations">Reserve Seat</button>
+        </article>
+        <article class="club-card" data-club-level="advanced">
+          <div class="club-card-meta"><span class="club-level">B2-C1 Upper-Inter</span><span class="club-status">▣ Tomorrow</span></div>
+          <h3>Business &amp; Career English</h3>
+          <p class="club-topic">“How to Ace Job Interviews in English”</p>
+          <p class="club-host">Hosted by Mark Davis (USA)</p>
+          <div class="club-details"><span>Seats: 4 / 8 filled</span><span>Tomorrow, 8:00 PM</span></div>
+          <div class="club-vocab"><span>PRE-CLUB VOCAB</span><b>pitch</b><b>qualification</b><b>leverage</b></div>
+          <button class="reserve-seat" type="button" data-club-name="Business &amp; Career English">Reserve Seat</button>
+        </article>
+        <article class="club-card" data-club-level="all">
+          <div class="club-card-meta"><span class="club-level">All Levels</span><span class="club-status">▣ This Saturday</span></div>
+          <h3>Book Club Discussion</h3>
+          <p class="club-topic">“Discussing 'The Last Light' Chapter 3”</p>
+          <p class="club-host">Hosted by Marin Vale</p>
+          <div class="club-details"><span>Seats: 2 / 10 filled</span><span>Sat, 10:00 AM</span></div>
+          <button class="reserve-seat" type="button" data-club-name="Book Club Discussion">Reserve Seat</button>
+        </article>
+      </div>
+      <section class="reading-drills" id="practice-paragraphs" aria-labelledby="drillsHeading">
+        <header class="drills-header">
+          <div>
+            <p class="eyebrow">PRACTICE PARAGRAPHS</p>
+            <h3 id="drillsHeading">Warm-Up Reading &amp; Speaking Drills</h3>
+            <p>Select your level and read the paragraph aloud before joining your live club session.</p>
+          </div>
+        </header>
+        <div class="drill-tabs" role="tablist" aria-label="Reading drill levels">
+          <button class="drill-tab active" type="button" role="tab" aria-selected="true" data-drill-level="beginner">Beginner A1–A2</button>
+          <button class="drill-tab" type="button" role="tab" aria-selected="false" data-drill-level="intermediate">Intermediate B1–B2</button>
+          <button class="drill-tab" type="button" role="tab" aria-selected="false" data-drill-level="advanced">Advanced B2–C1</button>
+        </div>
+        <article class="drill-card">
+          <div class="drill-card-heading"><span class="drill-level-label">A1–A2</span><h4 id="drillTitle">My Daily Routine</h4></div>
+          <p class="drill-paragraph" id="drillParagraph">Every morning, I like to start my day with a warm cup of coffee and a short walk outside. Taking time for myself in the morning helps me feel energized and ready for work. In the evening, I enjoy cooking simple meals and reading stories to improve my English vocabulary. I believe that building small, healthy habits every day is the secret to staying happy and balanced.</p>
+          <div class="drill-controls">
+            <button class="drill-control" id="listenDrill" type="button"><span aria-hidden="true">🔊</span> Listen Native Audio</button>
+            <button class="drill-control" id="slowDrill" type="button" aria-pressed="false"><span aria-hidden="true">🐢</span> Slow Speed (0.8x)</button>
+            <button class="drill-control" id="recordDrill" type="button"><span aria-hidden="true">🎙</span> Record Your Reading</button>
+          </div>
+          <p class="drill-status" id="drillStatus" aria-live="polite"></p>
+        </article>
+        <article class="pronunciation-widget" aria-labelledby="pronunciationHeading">
+          <div class="pronunciation-header"><div><p class="eyebrow">AI PRONUNCIATION COACH</p><h4 id="pronunciationHeading">Speak with confidence</h4></div><span class="ai-badge">AI FEEDBACK</span></div>
+          <p class="pronunciation-target">“Traveling to a foreign country broadens your perspective.”</p>
+          <button class="pronunciation-record" id="pronunciationRecord" type="button"><span class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>🎙 Tap to Record</span></button>
+          <div class="pronunciation-feedback" id="pronunciationFeedback" hidden>
+            <div class="pronunciation-score"><div class="score-ring"><strong>88%</strong><small>Accuracy</small></div><div><p class="eyebrow">OVERALL SCORE</p><p>Great rhythm and clear delivery.</p></div></div>
+            <div class="word-breakdown"><span class="word-correct">Traveling</span><span class="word-correct">to</span><span class="word-correct">a</span><span class="word-correct">foreign</span><span class="word-correct">country</span><span class="word-correct">broadens</span><span class="word-correct">your</span><span class="word-needs-work">perspective</span><button class="pitch-button" id="pitchButton" type="button">🔊 Hear Correct Pitch</button></div>
+          </div>
+          <p class="pronunciation-status" id="pronunciationStatus" aria-live="polite"></p>
+        </article>
+      </section>
+      <aside class="voice-warmup" id="voice-warmup" aria-labelledby="warmupHeading">
+        <div><p class="eyebrow">QUICK CONFIDENCE BOOST</p><h3 id="warmupHeading">1-Minute Voice Warmup</h3><p>Practice your self-introduction before joining the live session.</p></div>
+        <button class="mic-button" id="micButton" type="button"><span aria-hidden="true">🎙</span> Test Your Mic &amp; Intro</button>
+        <p class="warmup-status" id="warmupStatus" aria-live="polite"></p>
+      </aside>
     </section>
   </main>
 

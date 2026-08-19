@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Read at Library E-book">
   <title>Read now | Library E-book</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+  <meta name="theme-color" content="#0B0F17">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22English%20Library%22%2C%22short_name%22%3A%22English%20Library%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22theme_color%22%3A%22%230B0F17%22%2C%22background_color%22%3A%22%230B0F17%22%7D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -12,25 +16,25 @@
 </head>
 <body class="reader-page">
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Library E-book home"><span class="brand-mark">L</span><span>Library <i>E-book</i></span></a>
-    <nav class="nav-links" aria-label="Main navigation"><a href="index.html#discover">Discover</a><a href="order.html">Reserve a book</a><a href="index.html#events">Events</a><a class="nav-login" href="index.html#signin">My account</a></nav>
+    <a class="brand" href="index.html" aria-label="Library E-book home"><span class="brand-mark"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5v16M8 7h8M8 11h8"/></svg></span><span>Library <i>E-book</i></span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="index.html#discover">Discover</a><div class="learning-paths-menu"><button class="learning-paths-trigger" type="button" aria-expanded="false" aria-haspopup="true">Learning Paths <span aria-hidden="true">▾</span></button><div class="learning-paths-dropdown" role="menu"><div><p>Grammar Hubs</p><a href="index.html#gerunds" role="menuitem">Gerunds Masterclass</a><a href="index.html#infinitives" role="menuitem">Infinitives Practice</a><a href="index.html#cefr-search" role="menuitem">CEFR Level Quizzes</a></div><div><p>Vocabulary &amp; Life Skills</p><a href="index.html#vocab-times" role="menuitem">Times of Life</a><a href="index.html#vocab-activities" role="menuitem">Life Activities &amp; Goals</a><a href="index.html#vocab-friendship" role="menuitem">Relationships &amp; Friendship</a><a href="index.html#vocab-habits" role="menuitem">Health &amp; Daily Habits</a></div><div><p>Speaking &amp; Practice</p><a href="index.html#speaking-clubs" role="menuitem">Live Speaking Clubs</a><a href="index.html#practice-paragraphs" role="menuitem">Warm-Up Drills &amp; Audio</a><a href="index.html#voice-warmup" role="menuitem">1-Minute Mic Warmup</a></div><div><p>Graded Readers</p><a href="read.html?level=a1" role="menuitem">Beginner (A1–A2)</a><a href="read.html?level=b1" role="menuitem">Intermediate (B1–B2)</a><a href="read.html?level=c1" role="menuitem">Advanced (C1–C2)</a></div></div></div><a href="order.html">Reserve a book</a><a href="index.html#events">Events</a><a class="nav-login" href="index.html#signin">My account</a></nav>
   </header>
   <main class="reader-main">
     <aside class="reader-sidebar">
       <a href="index.html" class="back-link"><svg class="icon icon-arrow icon-arrow-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back to library</a>
-      <p class="eyebrow">CURRENTLY READING</p>
-      <h2>The Last Light</h2><p class="reader-author">by Marin Vale</p>
-      <div class="reader-progress"><span>Chapter 3 of 12</span><div><b></b></div><small>24% complete</small></div>
-      <div class="reader-tools"><p class="eyebrow">READING SETTINGS</p><div><span>Text size</span><button type="button" data-font-size="17">A</button><button type="button" data-font-size="20">A+</button></div><button id="themeButton" type="button">Night mode</button></div>
+      <p class="eyebrow">CURRENT LESSON</p>
+      <h2>Grammar in Context: Gerunds vs. Infinitives</h2><p class="reader-author">Level: Intermediate (B1–B2) | Lesson 3 of 12</p>
+      <div class="reader-progress"><span>Lesson 3 of 12</span><div><b></b></div><small>24% completed</small></div>
+      <div class="reader-tools"><p class="eyebrow">LESSON TOOLS</p><div><span>Text size</span><button type="button" data-font-size="17">A</button><button type="button" data-font-size="20">A+</button></div><button id="themeButton" type="button">Night mode</button><button class="lesson-tool" id="highlightGrammar" type="button">💡 Highlight Grammar Key</button><button class="lesson-tool" id="listenLesson" type="button">🔊 Listen to Audio</button><a class="lesson-tool" href="index.html#gerunds">📝 Open Practice Quiz</a></div>
     </aside>
     <article class="reading-text">
-      <p class="chapter-label">CHAPTER THREE</p>
-      <h1>The place where the sky begins</h1>
-      <p class="dropcap">Mara arrived at the old station just as the last light slipped behind the hills. The platform was empty, except for a suitcase turned on its side and a swallow tracing circles beneath the glass roof.</p>
-      <p>She had travelled all day to reach this quiet edge of the map. In her pocket, the letter from her grandmother had softened at its folds. It contained no address, only a sentence written in familiar blue ink: <em>Follow the river until it remembers your name.</em></p>
+      <p class="chapter-label">LESSON 3 / READING IN CONTEXT</p>
+      <h1>Lesson 3: The Place Where the Sky Begins</h1>
+      <p class="dropcap">Mara arrived at the old station just as the last light slipped behind the hills. The platform was empty, except for a suitcase turned on its side and a swallow <button class="grammar-highlight gerund-highlight" type="button" data-grammar="Gerund: a verb ending in -ing that acts like a noun. Khmer: កិរិយាសព្ទបញ្ចប់ដោយ -ing ដែលដើរតួជានាម។">tracing circles</button> beneath the glass roof.</p>
+      <p>She had travelled all day <button class="grammar-highlight infinitive-highlight" type="button" data-grammar="Infinitive: to + base verb, often showing purpose. Khmer: to បូកនឹងកិរិយាសព្ទដើម។">to reach this quiet edge</button> of the map. In her pocket, the letter from her grandmother had softened at its folds. It contained no address, only a sentence written in familiar blue ink: <em>Follow the river until it remembers your name.</em></p>
       <p>Beyond the tracks, the town rested in a blue-grey hush. A narrow path led through tall grass toward the water, and for the first time in years, Mara felt she was exactly where she needed to be.</p>
-      <p>She lifted her suitcase, stepped down from the platform, and began to walk.</p>
-      <div class="reader-end"><span>End of preview</span><a href="order.html">Reserve this book <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <p>She lifted her suitcase, stepped down from the platform, and began <button class="grammar-highlight infinitive-highlight" type="button" data-grammar="Infinitive: to + base verb, used here to express the action that follows. Khmer: to បង្ហាញសកម្មភាពបន្ទាប់។">to walk</button>.</p>
+      <div class="reader-end"><span>Lesson actions</span><div class="lesson-actions"><a class="lesson-primary-action" href="index.html#gerunds">Take Lesson Quiz <span aria-hidden="true">→</span></a><a class="lesson-secondary-action" href="index.html#firstConditional">Next Lesson: First Conditional <span aria-hidden="true">→</span></a></div></div>
     </article>
   </main>
   <footer><p>Library E-book <span>&bull;</span> A place for every reader.</p><p>&copy; <span id="year"></span> Library E-book</p></footer>
