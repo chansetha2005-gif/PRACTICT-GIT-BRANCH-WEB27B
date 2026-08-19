@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Library E-book — borrow, read, and manage your digital library">
-  <title>Library E-book</title>
+  <meta name="description" content="English Learning E-Book Library for learners in Cambodia">
+  <title>Learn English | E-Book Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -13,16 +13,17 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Library E-book home">
-      <span class="brand-mark">L</span>
-      <span>Library <i>E-book</i></span>
+      <span class="brand-mark">E</span>
+      <span class="logo-text">English <i>Library</i></span>
     </a>
     <button class="menu-button" aria-label="Open navigation" aria-expanded="false"><svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#discover">Discover</a>
       <a href="read.html">Read now</a>
-      <a href="order.html">Reserve a book</a>
-      <a href="#events">Events</a>
-      <a href="#visit">Visit us</a>
+      <a href="#discover">Learning paths</a>
+      <a href="#events">Speaking clubs</a>
+      <a href="#discover">Study tools</a>
+      <a href="#discover">For teachers</a>
       <a class="nav-login" href="#signin">My account</a>
     </nav>
   </header>
@@ -30,60 +31,202 @@
   <main id="home">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow hero-badge"><span></span> YOUR NEIGHBORHOOD LIBRARY</p>
-        <h1>Every story<br>starts <em>here.</em></h1>
-        <p class="hero-text">Find your next favorite read, a peaceful place to learn, and a community that shares your curiosity.</p>
+        <p class="eyebrow hero-badge"><span></span> LEARN ENGLISH WITH US</p>
+        <h1>Master English,<br>one story <em>at a time.</em></h1>
+        <p class="hero-text">Discover graded readers, audiobooks with real-time transcripts, and interactive grammar hubs for all proficiency levels.</p>
         <div class="hero-actions">
-          <a class="button button-dark" href="#discover">Explore the collection <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="text-link" href="#visit">Plan your visit</a>
+          <a class="button button-dark" href="#discover">Find your level <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="text-link" href="#events">Join a speaking club</a>
         </div>
-        <div class="hero-stats"><div><strong>48k+</strong><span>books &amp; e-books</span></div><div><strong>120+</strong><span>community events</span></div></div>
+        <div class="hero-stats"><div><strong>1,200+</strong><span>Graded Readers</span></div><div><strong>50+</strong><span>Conversation Clubs</span></div><div><strong>A1–C2</strong><span>CEFR Levels</span></div></div>
       </div>
       <div class="hero-art neon-shelf" aria-label="Floating featured books">
         <div class="neon-orb orb-one"></div><div class="neon-orb orb-two"></div>
         <div class="floating-book float-one"><span>THE<br>LAST<br>LIGHT</span><small>MARIN VALE</small></div>
         <div class="floating-book float-two"><span>WILD<br>ORBIT</span><small>NOAH JAMES</small></div>
         <div class="floating-book float-three"><span>THE<br>ARCHIVE<br>OF US</span><small>ELENA CROSS</small></div>
-        <div class="now-reading"><i></i><span>NOW TRENDING</span><strong>The Last Light</strong><small>12.4k readers this week</small></div>
+        <div class="now-reading"><i></i><span>LEARN IN CONTEXT</span><strong>Stories that speak to you</strong><small>With Khmer support built in</small></div>
       </div>
     </section>
 
     <section class="search-panel" id="discover">
       <div>
-        <p class="eyebrow">WHAT WILL YOU DISCOVER?</p>
-        <h2>Search our shelves</h2>
-        <p class="search-subtitle">Search books, authors, or topics from our digital collection.</p>
+        <p class="eyebrow">YOUR NEXT BREAKTHROUGH</p>
+        <h2>Find your next lesson</h2>
+        <p class="search-subtitle">Search our English collection by topic, level, or the skill you want to build.</p>
+      </div>
+      <div class="level-filters" role="group" aria-label="Filter by CEFR level">
+        <span class="filter-label">CEFR LEVELS</span>
+        <button class="level-pill active" type="button" data-level="all">All Levels</button>
+        <button class="level-pill" type="button" data-level="a1">A1 Beginner</button>
+        <button class="level-pill" type="button" data-level="a2">A2 Pre-Inter</button>
+        <button class="level-pill" type="button" data-level="b1">B1 Intermediate</button>
+        <button class="level-pill" type="button" data-level="b2">B2 Upper-Inter</button>
+        <button class="level-pill" type="button" data-level="advanced">C1/C2 Advanced</button>
       </div>
       <form class="search-form" id="searchForm">
-        <label class="sr-only" for="searchInput">Search books, authors, or topics</label>
-        <input id="searchInput" type="search" lang="km" placeholder="ស្វែងរកសៀវភៅ ឬអ្នកនិពន្ធ... / Search titles, authors, or topics...">
-        <button type="submit" aria-label="ស្វែងរក / Search"><svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span lang="km">ស្វែងរក</span></button>
+        <label class="sr-only" for="searchInput">Search by title, level, or topic</label>
+        <input id="searchInput" type="search" placeholder="Search by title, level, or topic (e.g., Grammar, Business English, IELTS)...">
+        <button type="submit" aria-label="Search"><svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span>Search</span></button>
       </form>
       <p class="search-message" id="searchMessage" aria-live="polite"></p>
-      <div class="quick-topics"><span>ស្វែងរកតាមប្រភេទ / Browse topics:</span><button class="tag-chip" type="button" lang="km">ភាសាខ្មែរ</button><button class="tag-chip" type="button" lang="km">ប្រវត្តិសាស្ត្រកម្ពុជា</button><button class="tag-chip" type="button" lang="km">រឿងព្រេង</button><button class="tag-chip" type="button" lang="km">Mystery / អាថ៌កំបាំង</button></div>
+      <div class="quick-topics"><span>EXPLORE TOPICS</span><button class="tag-chip" type="button">IELTS / TOEFL Prep</button><button class="tag-chip" type="button">Everyday Conversation</button><button class="tag-chip" type="button">Business English</button><button class="tag-chip" type="button">Graded Readers</button><button class="tag-chip" type="button">Grammar &amp; Vocab</button></div>
+    </section>
+
+    <section class="grammar-section" id="grammar" aria-labelledby="grammarHeading">
+      <div class="grammar-card">
+        <div class="grammar-content">
+          <div class="grammar-heading-row">
+            <div>
+              <p class="eyebrow">GRAMMAR HUB / A2–B1</p>
+              <h2 id="grammarHeading">Mastering Gerunds</h2>
+            </div>
+            <span class="grammar-status"><i></i> CORE CONCEPT</span>
+          </div>
+          <p class="grammar-definition">A gerund is a verb ending in -ing that works as a noun. It names an activity, idea, or experience rather than showing an action in time. Because gerunds behave like nouns, they can appear as the subject of a sentence, the object after a verb or preposition, or a complement that completes meaning. Compare “Swimming is relaxing” with “I enjoy swimming.” In both examples, swimming describes an activity, but its grammatical role changes. Gerunds can also take objects and adverbs: “Reading stories builds confidence.” Learning to spot the -ing form helps you understand sentence structure and speak with accuracy.</p>
+          <div class="grammar-roles" aria-label="Gerund grammar roles">
+            <button class="role-badge active" type="button" data-role="subject">Subject</button>
+            <button class="role-badge" type="button" data-role="object">Object</button>
+            <button class="role-badge" type="button" data-role="complement">Complement</button>
+          </div>
+        </div>
+        <div class="grammar-examples">
+          <p class="eyebrow">SEE IT IN A SENTENCE</p>
+          <div class="code-callout" data-example-role="subject">
+            <span class="code-number">01</span>
+            <code><mark>Swimming</mark> is relaxing.</code>
+            <small>gerund as subject</small>
+          </div>
+          <div class="code-callout" data-example-role="object">
+            <span class="code-number">02</span>
+            <code>I enjoy <mark>swimming</mark>.</code>
+            <small>gerund as object</small>
+          </div>
+          <div class="code-callout" data-example-role="complement">
+            <span class="code-number">03</span>
+            <code>Her favorite hobby is <mark>reading</mark>.</code>
+            <small>gerund as complement</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz" aria-labelledby="quizHeading">
+      <div class="quiz-card">
+        <div class="quiz-topline">
+          <span class="quiz-progress">Question <b>1</b> of 10</span>
+          <span class="quiz-level">Level: B1 Intermediate</span>
+        </div>
+        <div class="quiz-question">
+          <p class="eyebrow">GRAMMAR PRACTICE</p>
+          <h2 id="quizHeading">Mastering Gerunds Quiz</h2>
+          <p class="question-prompt">Choose the sentence where the gerund functions as the subject:</p>
+        </div>
+        <div class="quiz-options" role="group" aria-label="Answer choices">
+          <button class="quiz-option" type="button" data-answer="She is planning on visiting Paris."><span>A</span> She is planning on visiting Paris.</button>
+          <button class="quiz-option" type="button" data-answer="Swimming every morning boosts your energy."><span>B</span> Swimming every morning boosts your energy.</button>
+          <button class="quiz-option" type="button" data-answer="His favorite hobby is cooking."><span>C</span> His favorite hobby is cooking.</button>
+          <button class="quiz-option" type="button" data-answer="I caught him listening to music."><span>D</span> I caught him listening to music.</button>
+        </div>
+        <div class="quiz-feedback" id="quizFeedback" aria-live="polite" hidden>
+          <span class="feedback-icon" aria-hidden="true">✓</span>
+          <div><strong>Correct answer</strong><small>“Swimming” is the subject of the sentence.</small></div>
+        </div>
+        <button class="quiz-next" id="quizNext" type="button" hidden>Next question <span aria-hidden="true">→</span></button>
+        <div class="quiz-summary" id="quizSummary" aria-live="polite" hidden>
+          <p class="eyebrow">QUIZ COMPLETE</p>
+          <h3>Gerund practice complete.</h3>
+          <div class="summary-stats"><div><strong id="quizScore">0 / 10</strong><span>Total score</span></div><div><strong id="quizAccuracy">0%</strong><span>Accuracy</span></div></div>
+          <button class="quiz-retry" id="quizRetry" type="button">Retry Quiz <span aria-hidden="true">↻</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="infinitive-section" id="infinitives" aria-labelledby="infinitiveHeading">
+      <div class="infinitive-card">
+        <div class="infinitive-overview">
+          <p class="eyebrow">GRAMMAR ESSENTIALS</p>
+          <h2 id="infinitiveHeading">Mastering Infinitives</h2>
+          <p>An infinitive is the base form of a verb preceded by 'to' (e.g., <em>to learn</em>, <em>to speak</em>). Infinitives can act as nouns, adjectives, or adverbs in a sentence. They often express purpose, intentions, future goals, or reasons for an action.</p>
+        </div>
+        <div class="infinitive-examples" aria-label="Infinitive examples">
+          <div><span>AS SUBJECT</span><code><mark>To learn</mark> a new language takes patience.</code></div>
+          <div><span>AS OBJECT</span><code>She decided <mark>to study</mark> English today.</code></div>
+          <div><span>AS PURPOSE / ADVERB</span><code>He came to the library <mark>to read</mark>.</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="infinitive-quiz-section" id="infinitiveQuiz" aria-labelledby="infinitiveQuizHeading">
+      <div class="quiz-card infinitive-quiz-card">
+        <div class="quiz-topline">
+          <span class="infinitive-quiz-progress">Question <b>1</b> of 10</span>
+          <span class="quiz-level">Level: B1 Intermediate</span>
+        </div>
+        <div class="quiz-question infinitive-quiz-question">
+          <p class="eyebrow">GRAMMAR PRACTICE</p>
+          <h2 id="infinitiveQuizHeading">Mastering Infinitives Quiz</h2>
+          <p class="infinitive-question-prompt">Choose the sentence where the infinitive functions as the subject:</p>
+        </div>
+        <div class="quiz-options infinitive-quiz-options" role="group" aria-label="Infinitive quiz answer choices">
+          <button class="quiz-option infinitive-option" type="button"><span>A</span> She hopes to visit London.</button>
+          <button class="quiz-option infinitive-option" type="button"><span>B</span> To learn a new language takes patience.</button>
+          <button class="quiz-option infinitive-option" type="button"><span>C</span> His ambition is to become an engineer.</button>
+          <button class="quiz-option infinitive-option" type="button"><span>D</span> They went to the library to study.</button>
+        </div>
+        <div class="quiz-feedback infinitive-quiz-feedback" aria-live="polite" hidden>
+          <span class="feedback-icon" aria-hidden="true">✓</span>
+          <div><strong>Correct answer</strong><small>“To learn a new language” is the subject of the sentence.</small></div>
+        </div>
+        <button class="quiz-next infinitive-quiz-next" type="button" hidden>Next question <span aria-hidden="true">→</span></button>
+        <div class="quiz-summary infinitive-quiz-summary" aria-live="polite" hidden>
+          <p class="eyebrow">QUIZ COMPLETE</p>
+          <h3>Infinitive practice complete.</h3>
+          <div class="summary-stats"><div><strong class="infinitive-score">0 / 10</strong><span>Total score</span></div><div><strong class="infinitive-accuracy">0%</strong><span>Accuracy</span></div></div>
+          <button class="quiz-retry infinitive-quiz-retry" type="button">Retry Quiz <span aria-hidden="true">↻</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="vocabulary-section" id="vocabulary" aria-labelledby="vocabularyHeading">
+      <header class="vocabulary-header">
+        <div>
+          <p class="eyebrow">VOCABULARY BUILDER</p>
+          <h2 id="vocabularyHeading">Essential Life &amp; Social Vocabulary</h2>
+          <p>Master key expressions for life stages, daily activities, relationships, and habits.</p>
+        </div>
+        <button class="definition-toggle" id="definitionToggle" type="button" aria-pressed="true">Definitions: On</button>
+      </header>
+      <div class="vocabulary-tabs" role="tablist" aria-label="Vocabulary categories">
+        <button class="vocabulary-tab active" type="button" role="tab" aria-selected="true" data-vocabulary-category="life">Times of Life</button>
+        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="activities">Life Activities</button>
+        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="friendship">Friendship</button>
+        <button class="vocabulary-tab" type="button" role="tab" aria-selected="false" data-vocabulary-category="habits">Good &amp; Bad Habits</button>
+      </div>
+      <div class="vocabulary-grid" id="vocabularyGrid" role="tabpanel" aria-live="polite"></div>
     </section>
 
     <section class="features" id="events">
       <article>
         <span class="feature-icon">01</span>
-        <p class="eyebrow">TRENDING NOW</p>
-        <h3>Fresh on the shelf</h3>
-        <p>Browse staff picks, new arrivals, and stories everyone is talking about.</p>
-        <a href="read.html">Start reading <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="eyebrow">READ + LISTEN</p>
+        <h3>Graded Readers &amp; Audiobooks</h3>
+        <p>Read at your level with real-time text-to-speech, built-in Khmer translation tooltips, and adjustable speed controls.</p>
+        <a href="read.html">Browse Readers <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
       <article>
         <span class="feature-icon">02</span>
-        <p class="eyebrow">COMMUNITY FAVOURITE</p>
-        <h3>Make something wonderful</h3>
-        <p>Join conversations, book clubs, and workshops from our reader community.</p>
-        <a href="#calendar">View events <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="eyebrow">PRACTICE TOGETHER</p>
+        <h3>English Speaking Clubs</h3>
+        <p>Join weekly live practice sessions, pronunciation workshops, and guided book discussion groups.</p>
+        <a href="#calendar">View Schedule <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
       <article id="visit">
         <span class="feature-icon">03</span>
-        <p class="eyebrow">VISIT THE LIBRARY</p>
-        <h3>Your favorite corner</h3>
-        <p>Open every day with helpful people, warm spaces, and endless possibilities.</p>
-        <a href="#hours">Find hours &amp; directions <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="eyebrow">LEARN WITH CONFIDENCE</p>
+        <h3>Study Resources &amp; Worksheets</h3>
+        <p>Download flashcards, grammar guides, and vocabulary exercises curated by expert teachers.</p>
+        <a href="#discover">Explore Resources <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
     </section>
   </main>
@@ -97,7 +240,7 @@
 
       <header class="account-header">
         <h2 id="signinHeading">Welcome back</h2>
-        <p class="account-lead">Sign in to manage your loans and saved books.</p>
+        <p class="account-lead">Sign in to manage your loans, travel books, stories, and saved titles.</p>
       </header>
 
       <div class="sso-group" role="group" aria-label="Sign in with a provider">

@@ -42,7 +42,10 @@ body:has(#home) .nav-login:active {
 
 #signin.account {
   min-height: calc(100vh - 78px);
-  padding: 2.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  padding: clamp(3rem, 7vh, 5.5rem) 1.5rem 3rem;
   background:
     radial-gradient(circle at 82% 0%, rgba(52, 211, 153, 0.16), transparent 34%),
     radial-gradient(circle at 8% 100%, rgba(167, 255, 107, 0.1), transparent 30%),
@@ -65,6 +68,28 @@ body:has(#home) .nav-login:active {
     0 40px 70px rgba(15, 23, 42, 0.06);
   color: #1e293b;
   font-family: "Inter", "DM Sans", Arial, sans-serif;
+}
+
+.logo-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+html {
+  scroll-padding-top: 96px;
+}
+
+body:has(#home) .site-header {
+  position: sticky;
+  z-index: 30;
+  isolation: isolate;
+}
+
+body:has(#home) .nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 1.6vw, 1.5rem);
+  white-space: nowrap;
 }
 
 #signin .account-card input,
@@ -131,7 +156,7 @@ body:has(#home) #signin .account-card h2 {
   min-height: 48px;
   padding: 0.7rem 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 12px;
+  border-radius: 999px;
   background: #ffffff;
   color: #0f172a;
   font-size: 0.92rem;
@@ -153,24 +178,31 @@ body:has(#home) #signin .account-card h2 {
   border-color: #34d399;
   box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.28);
 }
-#signin .sso-apple {
+#signin .sso-button[data-sso="apple"] {
   border-color: #0f172a;
   background: #0f172a;
   color: #f8fafc;
 }
-#signin .sso-apple:hover {
+#signin .sso-button[data-sso="apple"]:hover {
   background: #1e293b;
   border-color: #1e293b;
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.22);
 }
-#signin .sso-logo {
+#signin .sso-logo-wrap {
+  display: inline-grid;
+  place-items: center;
   width: 18px;
   height: 18px;
   flex: 0 0 auto;
 }
-#signin .sso-logo-apple {
-  width: 16px;
-  height: 16px;
+#signin .sso-logo-wrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#signin .sso-button[data-sso="apple"] .sso-logo-wrap {
+  width: 17px;
+  height: 17px;
 }
 
 #signin .auth-divider {
@@ -182,7 +214,7 @@ body:has(#home) #signin .account-card h2 {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 #signin .auth-divider::before,
 #signin .auth-divider::after {
@@ -306,12 +338,13 @@ body:has(#home) #signin .field label {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: 0.15rem 0 1.15rem;
 }
 #signin .remember {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
   gap: 0.55rem;
   color: #1e293b;
   font-size: 0.82rem;
@@ -319,6 +352,10 @@ body:has(#home) #signin .field label {
   line-height: 1.4;
   cursor: pointer;
   user-select: none;
+}
+#signin .remember span,
+#signin .forgot-password {
+  white-space: nowrap;
 }
 #signin .remember input {
   appearance: none;
@@ -431,8 +468,14 @@ body:has(#home) #signin .field label {
 }
 
 @media (max-width: 767px) {
+  body:has(#home) .nav-links {
+    display: none;
+  }
+  body:has(#home) .nav-links.open {
+    display: flex;
+  }
   #signin.account {
-    padding: 1.15rem 1rem 2rem;
+    padding: 2rem 1rem 2.5rem;
     min-height: calc(100vh - 78px);
   }
   #signin .account-card {
@@ -440,8 +483,803 @@ body:has(#home) #signin .field label {
     border-radius: 18px;
   }
   #signin .form-options {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #signin .remember {
+    gap: 0.35rem;
+    font-size: 0.72rem;
+  }
+  #signin .forgot-password {
+    font-size: 0.72rem;
+  }
+}
+
+/* Key vocabulary builder */
+body:has(#home) .vocabulary-section {
+  padding: 92px 8% 106px;
+  background: #0b1020;
+}
+
+body:has(#home) .vocabulary-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1260px;
+  margin: 0 auto 30px;
+}
+
+body:has(#home) .vocabulary-header .eyebrow {
+  color: #00ffab;
+}
+
+body:has(#home) .vocabulary-header h2 {
+  margin-bottom: 12px;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  letter-spacing: -.055em;
+}
+
+body:has(#home) .vocabulary-header p:not(.eyebrow) {
+  margin: 0;
+  color: #9da9c4;
+  line-height: 1.6;
+}
+
+body:has(#home) .definition-toggle {
+  flex: 0 0 auto;
+  padding: 11px 15px;
+  border: 1px solid #00ffab5c;
+  border-radius: 999px;
+  background: #00ffab12;
+  color: #00ffab;
+  cursor: pointer;
+  font: 700 .75rem "DM Sans", sans-serif;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+body:has(#home) .definition-toggle:hover,
+body:has(#home) .definition-toggle:focus-visible {
+  background: #00ffab24;
+  box-shadow: 0 0 18px #00ffab2e;
+}
+
+body:has(#home) .vocabulary-tabs {
+  display: flex;
+  gap: 8px;
+  max-width: 1260px;
+  margin: 0 auto 22px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+body:has(#home) .vocabulary-tab {
+  flex: 0 0 auto;
+  padding: 11px 16px;
+  border: 1px solid #ffffff1a;
+  border-radius: 8px;
+  background: #ffffff08;
+  color: #a9b7d0;
+  cursor: pointer;
+  font: 600 .8rem "DM Sans", sans-serif;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+body:has(#home) .vocabulary-tab:hover,
+body:has(#home) .vocabulary-tab:focus-visible,
+body:has(#home) .vocabulary-tab.active {
+  border-color: #00ffab70;
+  background: #00ffab19;
+  color: #00ffab;
+}
+
+body:has(#home) .vocabulary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+body:has(#home) .vocabulary-card {
+  position: relative;
+  min-height: 132px;
+  padding: 20px 52px 18px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #111a30, #0d1426);
+  transition: border-color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+
+body:has(#home) .vocabulary-card:hover,
+body:has(#home) .vocabulary-card:focus-within {
+  border-color: #00ffab73;
+  background: linear-gradient(145deg, #12243a, #0d1829);
+  box-shadow: 0 10px 30px #00ffab0d;
+  transform: translateY(-2px);
+}
+
+body:has(#home) .vocabulary-term {
+  display: block;
+  color: #f2f6ff;
+  font: 700 1rem "DM Sans", sans-serif;
+  line-height: 1.35;
+}
+
+body:has(#home) .vocabulary-definition {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #9daec9;
+  font: 400 .78rem "DM Sans", sans-serif;
+  line-height: 1.55;
+  opacity: 0;
+  transition: max-height .25s ease, margin .25s ease, opacity .25s ease;
+}
+
+body:has(#home) .vocabulary-card:hover .vocabulary-definition,
+body:has(#home) .vocabulary-card:focus-within .vocabulary-definition,
+body:has(#home) .vocabulary-section.definitions-visible .vocabulary-definition {
+  max-height: 80px;
+  margin-top: 10px;
+  opacity: 1;
+}
+
+body:has(#home) .vocabulary-audio {
+  position: absolute;
+  top: 17px;
+  right: 16px;
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid #00ffab45;
+  border-radius: 50%;
+  background: #00ffab0d;
+  color: #00ffab;
+  cursor: pointer;
+  font-size: .88rem;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+body:has(#home) .vocabulary-audio:hover,
+body:has(#home) .vocabulary-audio:focus-visible {
+  background: #00ffab28;
+  box-shadow: 0 0 16px #00ffab55;
+  transform: scale(1.08);
+}
+
+body:has(#home) .vocabulary-empty {
+  grid-column: 1 / -1;
+  color: #9da9c4;
+}
+
+@media (max-width: 900px) {
+  body:has(#home) .vocabulary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  body:has(#home) .vocabulary-section {
+    padding: 62px 20px 78px;
+  }
+
+  body:has(#home) .vocabulary-header {
+    display: block;
+  }
+
+  body:has(#home) .definition-toggle {
+    margin-top: 20px;
+  }
+
+  body:has(#home) .vocabulary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Infinitives grammar module */
+body:has(#home) .infinitive-section,
+body:has(#home) .infinitive-quiz-section {
+  padding: 34px 8% 86px;
+  background: #080b16;
+}
+
+body:has(#home) .infinitive-quiz-section {
+  padding-top: 0;
+}
+
+body:has(#home) .infinitive-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(1120px, 100%);
+  min-height: 330px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #00ffab30;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #101a2d, #0c1324 66%, #111d31);
+  box-shadow: 0 26px 80px #00000052, inset 0 1px #ffffff0c;
+}
+
+body:has(#home) .infinitive-overview,
+body:has(#home) .infinitive-examples {
+  padding: 42px;
+}
+
+body:has(#home) .infinitive-overview {
+  border-right: 1px solid #ffffff0d;
+}
+
+body:has(#home) .infinitive-overview .eyebrow,
+body:has(#home) .infinitive-examples span {
+  color: #00ffab;
+}
+
+body:has(#home) .infinitive-overview h2 {
+  margin: 5px 0 22px;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -.055em;
+}
+
+body:has(#home) .infinitive-overview > p:not(.eyebrow) {
+  max-width: 570px;
+  margin: 0;
+  color: #bac6dc;
+  font-size: .94rem;
+  line-height: 1.8;
+}
+
+body:has(#home) .infinitive-overview em {
+  color: #00ffab;
+  font-style: normal;
+}
+
+body:has(#home) .infinitive-examples {
+  display: grid;
+  align-content: center;
+  gap: 13px;
+  background: #090f1c80;
+}
+
+body:has(#home) .infinitive-examples > div {
+  display: grid;
+  gap: 7px;
+  padding: 14px 16px;
+  border-left: 2px solid #00ffab;
+  border-radius: 7px;
+  background: #070b14;
+}
+
+body:has(#home) .infinitive-examples span {
+  font: 700 .62rem "DM Sans", sans-serif;
+  letter-spacing: .12em;
+}
+
+body:has(#home) .infinitive-examples code {
+  color: #e8f1ff;
+  font: 500 .88rem "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+
+body:has(#home) .infinitive-examples mark {
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #00ffab1f;
+  color: #00ffab;
+  text-shadow: 0 0 12px #00ffab80;
+}
+
+body:has(#home) .infinitive-quiz-section .quiz-card {
+  border-color: #00ffab3d;
+}
+
+body:has(#home) .infinitive-quiz-progress {
+  color: #7f8eaa;
+  font: 600 .78rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .infinitive-quiz-progress b {
+  color: #00ffab;
+  font-size: 1.1rem;
+}
+
+body:has(#home) .infinitive-quiz-question .eyebrow {
+  color: #00ffab;
+}
+
+body:has(#home) .infinitive-question-prompt {
+  margin: 0;
+  padding: 18px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 9px;
+  background: #070c16;
+  color: #eef4ff;
+  font: 500 1.02rem "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+
+body:has(#home) .infinitive-quiz-feedback[hidden],
+body:has(#home) .infinitive-quiz-next[hidden],
+body:has(#home) .infinitive-quiz-summary[hidden] {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  body:has(#home) .infinitive-section,
+  body:has(#home) .infinitive-quiz-section {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body:has(#home) .infinitive-section {
+    padding-top: 60px;
+  }
+
+  body:has(#home) .infinitive-card {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(#home) .infinitive-overview,
+  body:has(#home) .infinitive-examples {
+    padding: 28px 22px;
+  }
+
+  body:has(#home) .infinitive-overview {
+    border-right: 0;
+    border-bottom: 1px solid #ffffff0d;
+  }
+}
+
+/* Vocabulary quiz widget */
+body:has(#home) .quiz-section {
+  padding: 86px 8%;
+  background: #080b16;
+}
+
+body:has(#home) .quiz-card {
+  width: min(880px, 100%);
+  min-height: 470px;
+  margin: 0 auto;
+  padding: 32px 42px 36px;
+  border: 1px solid #00ffab3d;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #111b2e, #0b1323);
+  box-shadow: 0 25px 70px #00000052, 0 0 42px #00ffab0d, inset 0 1px #ffffff0c;
+}
+
+body:has(#home) .quiz-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+
+body:has(#home) .quiz-progress {
+  color: #7f8eaa;
+  font: 600 .78rem "DM Sans", sans-serif;
+  letter-spacing: .06em;
+}
+
+body:has(#home) .quiz-progress b {
+  color: #00ffab;
+  font-size: 1.1rem;
+}
+
+body:has(#home) .quiz-progress {
+  letter-spacing: 0;
+}
+
+body:has(#home) .quiz-level {
+  padding: 7px 13px;
+  border: 1px solid #00ffab66;
+  border-radius: 999px;
+  background: #00ffab15;
+  color: #00ffab;
+  font: 700 .72rem "DM Sans", sans-serif;
+  letter-spacing: .12em;
+}
+
+body:has(#home) .quiz-question {
+  max-width: 710px;
+  margin: 0 auto 29px;
+  text-align: center;
+}
+
+body:has(#home) .quiz-question .eyebrow {
+  color: #00ffab;
+}
+
+body:has(#home) .quiz-question h2 {
+  margin-bottom: 22px;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  letter-spacing: -.045em;
+}
+
+body:has(#home) .question-prompt {
+  margin: 0;
+  padding: 18px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 9px;
+  background: #070c16;
+  color: #eef4ff;
+  font: 500 1.02rem "DM Sans", sans-serif;
+  line-height: 1.6;
+}
+
+body:has(#home) .quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  max-width: 710px;
+  margin: 0 auto;
+}
+
+body:has(#home) .quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 54px;
+  padding: 12px 16px;
+  border: 1px solid #ffffff1c;
+  border-radius: 9px;
+  background: #ffffff08;
+  color: #dce6f7;
+  cursor: pointer;
+  font: 600 .91rem "DM Sans", sans-serif;
+  text-align: left;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+}
+
+body:has(#home) .quiz-option > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid #647694;
+  border-radius: 50%;
+  color: #94a5c2;
+  font-size: .72rem;
+}
+
+body:has(#home) .quiz-option:hover,
+body:has(#home) .quiz-option:focus-visible {
+  border-color: #00ffab;
+  background: #00ffab12;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+body:has(#home) .quiz-option.is-correct {
+  border-color: #00ffab;
+  background: #00ffab1c;
+  color: #00ffab;
+}
+
+body:has(#home) .quiz-option.is-wrong {
+  border-color: #ff668066;
+  background: #ff66800f;
+  color: #ff9bad;
+}
+
+body:has(#home) .quiz-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 710px;
+  margin: 20px auto 0;
+  padding: 14px 16px;
+  border: 1px solid #00ffab47;
+  border-radius: 9px;
+  background: #00ffab0d;
+}
+
+body:has(#home) .quiz-feedback[hidden],
+body:has(#home) .quiz-next[hidden] {
+  display: none;
+}
+
+body:has(#home) .feedback-icon {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  background: #00ffab;
+  color: #071019;
+  font-weight: 800;
+}
+
+body:has(#home) .quiz-feedback strong,
+body:has(#home) .quiz-feedback small {
+  display: block;
+}
+
+body:has(#home) .quiz-feedback strong {
+  color: #00ffab;
+  font: 700 .83rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .quiz-feedback small {
+  margin-top: 3px;
+  color: #aabbd4;
+  font: 400 .78rem "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+
+body:has(#home) .quiz-next {
+  display: block;
+  margin: 19px auto 0;
+  padding: 10px 15px;
+  border: 0;
+  background: transparent;
+  color: #00ffab;
+  cursor: pointer;
+  font: 700 .82rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .quiz-next:hover {
+  text-shadow: 0 0 15px #00ffab;
+}
+
+body:has(#home) .quiz-summary {
+  max-width: 520px;
+  margin: 25px auto 0;
+  padding: 28px;
+  border: 1px solid #00ffab45;
+  border-radius: 12px;
+  background: #00ffab0b;
+  text-align: center;
+}
+
+body:has(#home) .quiz-summary[hidden] {
+  display: none;
+}
+
+body:has(#home) .quiz-summary .eyebrow {
+  color: #00ffab;
+}
+
+body:has(#home) .quiz-summary h3 {
+  margin: 9px 0 23px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.35rem;
+}
+
+body:has(#home) .summary-stats {
+  display: flex;
+  justify-content: center;
+  gap: 46px;
+}
+
+body:has(#home) .summary-stats div {
+  display: grid;
+  gap: 4px;
+}
+
+body:has(#home) .summary-stats strong {
+  color: #00ffab;
+  font: 700 1.5rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .summary-stats span {
+  color: #8fa1bf;
+  font: 600 .7rem "DM Sans", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body:has(#home) .quiz-retry {
+  margin-top: 23px;
+  padding: 11px 17px;
+  border: 1px solid #00ffab70;
+  border-radius: 8px;
+  background: #00ffab18;
+  color: #00ffab;
+  cursor: pointer;
+  font: 700 .82rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .quiz-retry:hover {
+  background: #00ffab2b;
+  box-shadow: 0 0 20px #00ffab2e;
+}
+
+@media (max-width: 767px) {
+  body:has(#home) .quiz-section {
+    padding: 60px 20px;
+  }
+
+  body:has(#home) .quiz-card {
+    min-height: 0;
+    padding: 25px 20px 28px;
+  }
+
+  body:has(#home) .quiz-topline {
+    margin-bottom: 27px;
+  }
+
+  body:has(#home) .quiz-level {
+    font-size: .62rem;
+  }
+
+  body:has(#home) .quiz-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Grammar lesson widget */
+body:has(#home) .grammar-section {
+  padding: 86px 8%;
+  background: #080b16;
+}
+
+body:has(#home) .grammar-card {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  width: min(1120px, 100%);
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #00ffab30;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #101a2d, #0c1324 66%, #111d31);
+  box-shadow: 0 0 0 1px #ffffff05, 0 26px 80px #00000052, inset 0 1px #ffffff0c;
+}
+
+body:has(#home) .grammar-content,
+body:has(#home) .grammar-examples {
+  padding: 42px;
+}
+
+body:has(#home) .grammar-content {
+  border-right: 1px solid #ffffff0d;
+}
+
+body:has(#home) .grammar-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+body:has(#home) .grammar-heading-row h2 {
+  margin-top: 3px;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -.055em;
+}
+
+body:has(#home) .grammar-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid #00ffab47;
+  border-radius: 999px;
+  color: #00ffab;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+
+body:has(#home) .grammar-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ffab;
+  box-shadow: 0 0 12px #00ffab;
+}
+
+body:has(#home) .grammar-definition {
+  max-width: 590px;
+  margin: 30px 0 25px;
+  color: #bac6dc;
+  font-size: .93rem;
+  line-height: 1.8;
+}
+
+body:has(#home) .grammar-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+body:has(#home) .role-badge {
+  padding: 9px 15px;
+  border: 1px solid #00ffab55;
+  border-radius: 999px;
+  background: #00ffab12;
+  color: #00ffab;
+  cursor: pointer;
+  font: 700 .76rem "DM Sans", sans-serif;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+body:has(#home) .role-badge:hover,
+body:has(#home) .role-badge:focus-visible,
+body:has(#home) .role-badge.active {
+  background: #00ffab27;
+  box-shadow: 0 0 18px #00ffab2e;
+  transform: translateY(-1px);
+}
+
+body:has(#home) .grammar-examples {
+  background: #090f1c80;
+}
+
+body:has(#home) .grammar-examples > .eyebrow {
+  margin-bottom: 18px;
+  color: #73839f;
+}
+
+body:has(#home) .code-callout {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 7px 13px;
+  align-items: center;
+  margin: 12px 0;
+  padding: 15px 17px;
+  border: 1px solid #ffffff12;
+  border-left: 2px solid #00ffab;
+  border-radius: 8px;
+  background: #070b14;
+  transition: border-color .2s ease, background .2s ease, opacity .2s ease;
+}
+
+body:has(#home) .code-callout.is-muted {
+  opacity: .4;
+}
+
+body:has(#home) .code-number,
+body:has(#home) .code-callout small {
+  color: #657694;
+  font: 600 .67rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .code-callout code {
+  color: #e8f1ff;
+  font: 500 .95rem "DM Sans", sans-serif;
+}
+
+body:has(#home) .code-callout mark {
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #00ffab1f;
+  color: #00ffab;
+  text-shadow: 0 0 12px #00ffab80;
+}
+
+body:has(#home) .code-callout small {
+  grid-column: 2;
+}
+
+@media (max-width: 767px) {
+  body:has(#home) .grammar-section {
+    padding: 60px 20px;
+  }
+
+  body:has(#home) .grammar-card {
+    grid-template-columns: 1fr;
+    aspect-ratio: auto;
+  }
+
+  body:has(#home) .grammar-content,
+  body:has(#home) .grammar-examples {
+    padding: 28px 22px;
+  }
+
+  body:has(#home) .grammar-content {
+    border-right: 0;
+    border-bottom: 1px solid #ffffff0d;
+  }
+
+  body:has(#home) .grammar-status {
+    display: none;
   }
 }
 
@@ -459,5 +1297,142 @@ body:has(#home) #signin .field label {
   body:has(#home) .nav-links > a:hover,
   body:has(#home) .nav-login:hover {
     transform: none;
+  }
+}
+
+/* English learning library home */
+body:has(#home) .hero-copy h1 {
+  max-width: 720px;
+}
+
+body:has(#home) .hero-copy h1 em {
+  font-style: normal;
+}
+
+body:has(#home) .hero-stats {
+  flex-wrap: wrap;
+}
+
+body:has(#home) .level-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 13px;
+}
+
+body:has(#home) .filter-label {
+  margin-right: 5px;
+  color: #8491b0;
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+body:has(#home) .level-pill,
+body:has(#home) .tag-chip {
+  border: 1px solid #ffffff1c;
+  border-radius: 999px;
+  background: #ffffff08;
+  color: #cbd4e9;
+  cursor: pointer;
+  font: 600 .78rem "DM Sans", sans-serif;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+}
+
+body:has(#home) .level-pill {
+  padding: 8px 12px;
+}
+
+body:has(#home) .level-pill:hover,
+body:has(#home) .level-pill:focus-visible,
+body:has(#home) .tag-chip:hover,
+body:has(#home) .tag-chip:focus-visible {
+  border-color: #9cff74aa;
+  color: #f3f7ff;
+  transform: translateY(-1px);
+}
+
+body:has(#home) .level-pill.active {
+  border-color: #9cff74;
+  background: #9cff741c;
+  color: #b7ff98;
+}
+
+body:has(#home) .quick-topics span {
+  color: #8491b0;
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+body:has(#home) .quick-topics .tag-chip {
+  font-family: "DM Sans", sans-serif !important;
+  font-size: .78rem;
+}
+
+body:has(#home) .features {
+  position: relative;
+  gap: 1px;
+  padding: 94px 8% 110px;
+  background: #0b1020;
+}
+
+body:has(#home) .features article {
+  min-height: 315px;
+  padding: 30px 32px 28px;
+  border: 1px solid #ffffff12;
+  background: linear-gradient(145deg, #111a30, #0d1426);
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+
+body:has(#home) .features article:hover {
+  border-color: #50e6d266;
+  background: linear-gradient(145deg, #15243b, #0d1829);
+  transform: translateY(-5px);
+}
+
+body:has(#home) .features article h3 {
+  max-width: 260px;
+  margin: 24px 0 13px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -.03em;
+}
+
+body:has(#home) .features article > p:not(.eyebrow) {
+  max-width: 300px;
+  color: #9da9c4;
+  line-height: 1.7;
+}
+
+body:has(#home) .features article > a {
+  margin-top: 22px;
+  color: #9cff74;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+body:has(#home) .feature-icon {
+  color: #9cff74;
+  font-family: "DM Sans", sans-serif;
+}
+
+@media (max-width: 767px) {
+  body:has(#home) .level-filters {
+    align-items: flex-start;
+  }
+
+  body:has(#home) .filter-label {
+    flex-basis: 100%;
+  }
+
+  body:has(#home) .features {
+    padding: 62px 24px 76px;
+  }
+
+  body:has(#home) .features article {
+    min-height: 0;
+    padding: 26px 24px;
   }
 }
